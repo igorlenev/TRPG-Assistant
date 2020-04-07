@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TRPG Assistant</string>
+    <string name="drawButton">Draw a Dice</string>
+    <string name="numberOfEdges">Enter number of edges</string>
 </resources>
