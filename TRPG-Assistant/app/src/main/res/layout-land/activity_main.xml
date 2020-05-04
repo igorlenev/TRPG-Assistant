@@ -8,24 +8,25 @@
 
     <LinearLayout
         android:id="@+id/changebleFragmentContainer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:background="@color/ColorSoft"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/dicerFragmentContainer"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dicerFragmentContainer"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"></LinearLayout>
+        app:layout_constraintVertical_bias="1.0"></LinearLayout>
 
     <LinearLayout
         android:id="@+id/dicerFragmentContainer"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
         android:background="@color/colorAccent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"></LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

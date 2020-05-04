@@ -1,4 +1,4 @@
-package com.example.trpgassistant.dice;
+package com.example.trpgassistant;
 
 import android.widget.Button;
 import android.widget.Toast;
