@@ -22,6 +22,7 @@
                 android:id="@+id/numberOfEdges"
                 android:layout_width="64dp"
                 android:layout_height="wrap_content"
+                android:autoText="false"
                 android:autofillHints="Number of Edges"
                 android:ems="10"
                 android:gravity="center"

@@ -24,6 +24,9 @@ public class DicerFragment extends Fragment {
     private EditText numberOfEdgesField;
     private EditText numberOfDicesField;
     private EditText modifierField;
+    private int numberOfEdges;
+    private int numberOfDices;
+    private int modifier;
     private Activity activity;
 
     @Nullable
@@ -45,7 +48,13 @@ public class DicerFragment extends Fragment {
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity, new Dice(Integer.valueOf(numberOfEdgesField.getText().toString()), Integer.valueOf(numberOfDicesField.getText().toString()), Integer.valueOf(modifierField.getText().toString())).generateDice(), Toast.LENGTH_LONG).show();
+                if(numberOfEdgesField.getText().toString().isEmpty()){numberOfEdges = 0;}
+                else {numberOfEdges = Integer.valueOf(numberOfEdgesField.getText().toString());}
+                if(numberOfDicesField.getText().toString().isEmpty()){numberOfDices = 1;}
+                else {numberOfDices = Integer.valueOf(numberOfDicesField.getText().toString());}
+                if(modifierField.getText().toString().isEmpty()){modifier = 0;}
+                else{modifier = Integer.valueOf(modifierField.getText().toString());}
+                Toast.makeText(activity, new Dice(numberOfEdges, numberOfDices, modifier).generateDice(), Toast.LENGTH_LONG).show();
             }
         });
     }
