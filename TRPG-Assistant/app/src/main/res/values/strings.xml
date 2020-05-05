@@ -2,6 +2,6 @@
     <string name="app_name">TRPG Assistant</string>
     <string name="generateButton">Throw a Dice</string>
     <string name="numberOfEdges">Edges</string>
-    <string name="multiplier">Multiplier</string>
+    <string name="numberOfDices">Dices</string>
     <string name="modifier">Modifier</string>
 </resources>

@@ -41,13 +41,13 @@
                 app:layout_constraintStart_toEndOf="@+id/numberOfEdges" />
 
             <EditText
-                android:id="@+id/multiplier"
+                android:id="@+id/numberOfDices"
                 android:layout_width="88dp"
                 android:layout_height="wrap_content"
                 android:autofillHints="Number of Edges"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="@string/multiplier"
+                android:hint="@string/numberOfDices"
                 android:inputType="number"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textViewx" />
@@ -60,7 +60,7 @@
                 android:gravity="center"
                 android:text="+"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/multiplier" />
+                app:layout_constraintStart_toEndOf="@+id/numberOfDices" />
 
             <EditText
                 android:id="@+id/modifier"
