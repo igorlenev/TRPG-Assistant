@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">TRPG Assistant</string>
     <string name="generateButton">Throw a Dice</string>
-    <string name="numberOfEdges">Enter number of edges</string>
+    <string name="numberOfEdges">Edges</string>
+    <string name="multiplier">Multiplier</string>
+    <string name="modifier">Modifier</string>
 </resources>

@@ -5,28 +5,91 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/numberOfEdges"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:autofillHints="Number of Edges"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/numberOfEdges"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/generateButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/generateButton"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/generateButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/generateButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <EditText
+                android:id="@+id/numberOfEdges"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:autofillHints="Number of Edges"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/numberOfEdges"
+                android:inputType="number"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id='@+id/textViewx'
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="x"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/numberOfEdges" />
+
+            <EditText
+                android:id="@+id/multiplier"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:autofillHints="Number of Edges"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/multiplier"
+                android:inputType="number"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewx" />
+
+            <TextView
+                android:id="@+id/textViewPlus"
+                android:layout_width="9dp"
+                android:layout_height="18dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="+"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/multiplier" />
+
+            <EditText
+                android:id="@+id/modifier"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:autofillHints="Number of Edges"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/modifier"
+                android:inputType="number"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewPlus" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/generateButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/generateButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

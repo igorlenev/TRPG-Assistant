@@ -1,5 +1,6 @@
 package com.example.trpgassistant;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ import androidx.fragment.app.FragmentActivity;
 public class DicerFragment extends Fragment {
     private Button generateButton;
     private EditText numberOfEdgesField;
-    private int numberOfEdges;
+    private Activity activity;
 
     @Nullable
     @Override
@@ -33,18 +34,15 @@ public class DicerFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         numberOfEdgesField = getView().findViewById(R.id.numberOfEdges);
         generateButton = getView().findViewById(R.id.generateButton);
-        numberOfEdges = getView().Integer.valueOf(numberOfEdges.getText().toString())).generateDice();
+        activity = getActivity();
+
+        super.onCreate(savedInstanceState);
+
+        generateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(activity, new Dice(Integer.valueOf(numberOfEdgesField.getText().toString())).generateDice(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
-
-    @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-            generateButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast toast = Toast.makeText(DicerFragment.this, new Dice(Integer.valueOf(numberOfEdges.getText().toString())).generateDice(), Toast.LENGTH_LONG).show();
-                }
-            });
-        }
 }
