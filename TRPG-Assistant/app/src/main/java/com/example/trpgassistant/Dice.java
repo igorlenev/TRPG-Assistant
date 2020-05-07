@@ -45,23 +45,19 @@ public class Dice extends AppCompatActivity {
         return dicerLog;
     }*/
 
-    public String getDiceText(){
-        return this.diceText;
-    }
-
     public String getCurrentTime(){
         return java.time.LocalTime.now().toString();
     }
 
-    public String generateDice (){
-        diceText = "[" + numberOfEdges + "]" + "*" + numberOfDices + "+" + modifier + "=[";
+    public String getDiceText (){
+        diceText = "[" + numberOfEdges + "]" + " * " + numberOfDices + " + " + modifier + " = [";
         for (int i=0; i<numberOfDices; i++){
             temporaryRandom = (int)(Math.random()*numberOfEdges+1);
             diceText = diceText + temporaryRandom;
             summaryRandom = summaryRandom + temporaryRandom;
-            if(i<numberOfDices-1){diceText = diceText + "+";}
+            if(i<numberOfDices-1){diceText = diceText + " + ";}
         }
-        diceText = diceText + "]+" + modifier + "=" + (summaryRandom+modifier);
+        diceText = diceText + "] + " + modifier + " = " + (summaryRandom+modifier);
         //updateDicerLog(diceText);
         return diceText;
     }

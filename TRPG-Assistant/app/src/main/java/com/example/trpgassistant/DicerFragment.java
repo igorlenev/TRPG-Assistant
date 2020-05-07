@@ -17,7 +17,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,11 +39,6 @@ public class DicerFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        dicerLogRecyclerView = (RecyclerView) getView().findViewById(R.id.dicerLog);
-        dicerLogRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        dicerLogRecyclerView.setAdapter(dicerLogAdapter);
-        dicerLogRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
         return inflater.inflate(R.layout.dicer_fragment, container, false);
     }
 
@@ -58,8 +52,15 @@ public class DicerFragment extends Fragment {
         generateButton = getView().findViewById(R.id.generateButton);
         activity = getActivity();
 
-        generateButton.setOnClickListener(new View.OnClickListener() {
+        dicerLogRecyclerView = getView().findViewById(R.id.dicerLog);
+        dicerLogRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        dicerLogRecyclerView.setAdapter(dicerLogAdapter);
+        dicerLogRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
+        DicerLogAdapter dicerLogAdapter = new DicerLogAdapter(dices);
+        dicerLogRecyclerView.setAdapter(dicerLogAdapter);
+
+        generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(numberOfEdgesField.getText().toString().isEmpty()){numberOfEdges = 0;}
@@ -70,8 +71,7 @@ public class DicerFragment extends Fragment {
                 else{modifier = Integer.valueOf(modifierField.getText().toString());}
 
                 dices.add(new Dice(numberOfEdges, numberOfDices, modifier));
-                DicerLogAdapter dicerLogAdapter = new DicerLogAdapter(dices);
-                dicerLogRecyclerView.setAdapter(dicerLogAdapter);
+                dicerLogRecyclerView.getAdapter().notifyDataSetChanged();
 
                 //Toast.makeText(activity, new Dice(numberOfEdges, numberOfDices, modifier).generateDice(), Toast.LENGTH_LONG).show();
             }
