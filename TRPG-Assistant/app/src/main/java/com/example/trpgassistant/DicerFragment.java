@@ -18,6 +18,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class DicerFragment extends Fragment {
     private Button generateButton;
@@ -28,24 +33,33 @@ public class DicerFragment extends Fragment {
     private int numberOfDices;
     private int modifier;
     private Activity activity;
+    private RecyclerView dicerLogRecyclerView;
+    private ArrayList<Dice> dices = new ArrayList<Dice>();
+    private DicerLogAdapter dicerLogAdapter = new DicerLogAdapter(dices);
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        dicerLogRecyclerView = (RecyclerView) getView().findViewById(R.id.dicerLog);
+        dicerLogRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        dicerLogRecyclerView.setAdapter(dicerLogAdapter);
+        dicerLogRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
         return inflater.inflate(R.layout.dicer_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         numberOfEdgesField = getView().findViewById(R.id.numberOfEdges);
         numberOfDicesField = getView().findViewById(R.id.numberOfDices);
         modifierField = getView().findViewById(R.id.modifier);
         generateButton = getView().findViewById(R.id.generateButton);
         activity = getActivity();
 
-        super.onCreate(savedInstanceState);
-
         generateButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 if(numberOfEdgesField.getText().toString().isEmpty()){numberOfEdges = 0;}
@@ -54,7 +68,12 @@ public class DicerFragment extends Fragment {
                 else {numberOfDices = Integer.valueOf(numberOfDicesField.getText().toString());}
                 if(modifierField.getText().toString().isEmpty()){modifier = 0;}
                 else{modifier = Integer.valueOf(modifierField.getText().toString());}
-                Toast.makeText(activity, new Dice(numberOfEdges, numberOfDices, modifier).generateDice(), Toast.LENGTH_LONG).show();
+
+                dices.add(new Dice(numberOfEdges, numberOfDices, modifier));
+                DicerLogAdapter dicerLogAdapter = new DicerLogAdapter(dices);
+                dicerLogRecyclerView.setAdapter(dicerLogAdapter);
+
+                //Toast.makeText(activity, new Dice(numberOfEdges, numberOfDices, modifier).generateDice(), Toast.LENGTH_LONG).show();
             }
         });
     }
