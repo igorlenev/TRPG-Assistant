@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class DicerLogAdapter extends RecyclerView.Adapter<DicerLogAdapter.DicerLogViewHolder> {
-    ArrayList<Dice> dices;
+    private ArrayList<Dice> dices;
 
     public DicerLogAdapter (ArrayList<Dice> dices){
         this.dices = dices;
@@ -30,7 +30,7 @@ public class DicerLogAdapter extends RecyclerView.Adapter<DicerLogAdapter.DicerL
     @NonNull
     @Override
     public DicerLogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dicer_log_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dicer_log_list_item, parent, false);
         return new DicerLogViewHolder(view);
     }
 

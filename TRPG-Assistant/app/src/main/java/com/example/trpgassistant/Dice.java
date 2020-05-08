@@ -50,14 +50,19 @@ public class Dice extends AppCompatActivity {
     }
 
     public String getDiceText (){
-        diceText = "[" + numberOfEdges + "]" + " * " + numberOfDices + " + " + modifier + " = [";
+        summaryRandom = 0;
+        diceText = "[" + numberOfEdges + "]" + " * " + numberOfDices;
+        if (modifier!=0){diceText = diceText + " + " + modifier;}
+        diceText += " = [";
         for (int i=0; i<numberOfDices; i++){
             temporaryRandom = (int)(Math.random()*numberOfEdges+1);
             diceText = diceText + temporaryRandom;
             summaryRandom = summaryRandom + temporaryRandom;
             if(i<numberOfDices-1){diceText = diceText + " + ";}
         }
-        diceText = diceText + "] + " + modifier + " = " + (summaryRandom+modifier);
+        diceText = diceText + "]";
+        if (modifier!=0){diceText = diceText + " + " + modifier;}
+        diceText += " = " + (summaryRandom+modifier);
         //updateDicerLog(diceText);
         return diceText;
     }

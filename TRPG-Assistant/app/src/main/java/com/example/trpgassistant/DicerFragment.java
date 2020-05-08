@@ -73,7 +73,7 @@ public class DicerFragment extends Fragment {
                 dices.add(new Dice(numberOfEdges, numberOfDices, modifier));
                 dicerLogRecyclerView.getAdapter().notifyDataSetChanged();
 
-                //Toast.makeText(activity, new Dice(numberOfEdges, numberOfDices, modifier).generateDice(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(activity, dices.size(), Toast.LENGTH_LONG).show();
             }
         });
     }
