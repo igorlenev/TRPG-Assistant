@@ -45,4 +45,17 @@ public class DicerLogAdapter extends RecyclerView.Adapter<DicerLogAdapter.DicerL
     public int getItemCount() {
         return dices.size();
     }
+
+    public ArrayList<Dice> getDices() {
+        return dices;
+    }
+
+    public void setDices(ArrayList<Dice> dices) {
+        this.dices = dices;
+    }
+
+    public void addDices(Dice dice) {
+        this.dices.add(dice);
+        notifyDataSetChanged();
+    }
 }
