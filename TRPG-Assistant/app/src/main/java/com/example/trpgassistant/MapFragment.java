@@ -5,8 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
-public class MapViewFragment extends Fragment {
+public class MapFragment extends Fragment {
 
 }

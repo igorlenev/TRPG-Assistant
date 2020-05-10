@@ -5,8 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
-public class SheetViewFragment extends Fragment {
+public class SheetsFragment extends Fragment {
 
 }

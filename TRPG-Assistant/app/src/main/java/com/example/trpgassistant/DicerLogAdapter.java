@@ -38,6 +38,7 @@ public class DicerLogAdapter extends RecyclerView.Adapter<DicerLogAdapter.DicerL
     public void onBindViewHolder(@NonNull DicerLogViewHolder holder, int position) {
         holder.diceHistoryText.setText(dices.get(position).getDiceText());
         holder.diceHistoryTime.setText(dices.get(position).getCurrentTime());
+        //notifyDataSetChanged();
     }
 
     @Override

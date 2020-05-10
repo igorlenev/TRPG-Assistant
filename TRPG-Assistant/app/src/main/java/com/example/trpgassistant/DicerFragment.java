@@ -35,6 +35,7 @@ public class DicerFragment extends Fragment {
     private RecyclerView dicerLogRecyclerView;
     private ArrayList<Dice> dices = new ArrayList<Dice>();
     private DicerLogAdapter dicerLogAdapter = new DicerLogAdapter(dices);
+    //private int count = 0;
 
     @Nullable
     @Override
@@ -71,9 +72,10 @@ public class DicerFragment extends Fragment {
                 else{modifier = Integer.valueOf(modifierField.getText().toString());}
 
                 dices.add(new Dice(numberOfEdges, numberOfDices, modifier));
-                dicerLogRecyclerView.getAdapter().notifyDataSetChanged();
+                dicerLogRecyclerView.getAdapter().notifyItemInserted(dices.size()-1);
+                //dicerLogRecyclerView.getAdapter().notifyDataSetChanged();
 
-                //Toast.makeText(activity, dices.size(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(activity, dices.get(count).toString(), Toast.LENGTH_LONG).show();
             }
         });
     }
