@@ -22,8 +22,8 @@ public class DicerLogAdapter extends RecyclerView.Adapter<DicerLogAdapter.DicerL
         TextView diceHistoryTime;
         public DicerLogViewHolder (View view) {
             super (view);
-            diceHistoryText = (TextView) view.findViewById(R.id.diceHistoryText);
-            diceHistoryTime = (TextView) view.findViewById(R.id.diceHistoryTime);
+            diceHistoryText = view.findViewById(R.id.diceHistoryText);
+            diceHistoryTime = view.findViewById(R.id.diceHistoryTime);
         }
     }
 
@@ -36,9 +36,8 @@ public class DicerLogAdapter extends RecyclerView.Adapter<DicerLogAdapter.DicerL
 
     @Override
     public void onBindViewHolder(@NonNull DicerLogViewHolder holder, int position) {
-        holder.diceHistoryText.setText(dices.get(position).getDiceText());
-        holder.diceHistoryTime.setText(dices.get(position).getCurrentTime());
-        //notifyDataSetChanged();
+        holder.diceHistoryText.setText(dices.get(position).getText());
+        holder.diceHistoryTime.setText(dices.get(position).getTime());
     }
 
     @Override
@@ -46,15 +45,15 @@ public class DicerLogAdapter extends RecyclerView.Adapter<DicerLogAdapter.DicerL
         return dices.size();
     }
 
-    public ArrayList<Dice> getDices() {
+    /*public ArrayList<Dice> getDices() {
         return dices;
     }
 
     public void setDices(ArrayList<Dice> dices) {
         this.dices = dices;
-    }
+    }*/
 
-    public void addDices(Dice dice) {
+    public void addDice(Dice dice) {
         this.dices.add(dice);
         notifyDataSetChanged();
     }

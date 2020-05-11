@@ -2,18 +2,25 @@ package com.example.trpgassistant;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Dice extends AppCompatActivity {
     int numberOfEdges;
     int summaryRandom;
     int temporaryRandom;
     int numberOfDices;
     int modifier;
+    String temporaryDiceText;
     String diceText;
+    String diceTime;
 
     public Dice (int numberOfEdges, int numberOfDices, int modifier){
         this.numberOfEdges = numberOfEdges;
         this.numberOfDices = numberOfDices;
         this.modifier = modifier;
+        diceText = getTemporaryDiceText();
+        diceTime = getCurrentTime();
         return;
     }
 
@@ -21,20 +28,24 @@ public class Dice extends AppCompatActivity {
         return java.time.LocalTime.now().toString();
     }
 
-    public String getDiceText (){
+    public String getText(){return diceText;}
+
+    public String getTime(){return diceTime;}
+
+    public String getTemporaryDiceText (){
         summaryRandom = 0;
-        diceText = "[" + numberOfEdges + "]" + " * " + numberOfDices;
-        if (modifier!=0){diceText = diceText + " + " + modifier;}
-        diceText += " = [";
+        temporaryDiceText = "[" + numberOfEdges + "]" + " * " + numberOfDices;
+        if (modifier!=0){temporaryDiceText += " + " + modifier;}
+        temporaryDiceText += " = [";
         for (int i=0; i<numberOfDices; i++){
             temporaryRandom = (int)(Math.random()*numberOfEdges+1);
-            diceText = diceText + temporaryRandom;
+            temporaryDiceText += temporaryRandom;
             summaryRandom = summaryRandom + temporaryRandom;
-            if(i<numberOfDices-1){diceText = diceText + " + ";}
+            if(i<numberOfDices-1){temporaryDiceText += " + ";}
         }
-        diceText = diceText + "]";
-        if (modifier!=0){diceText = diceText + " + " + modifier;}
-        diceText += " = " + (summaryRandom+modifier);
-        return diceText;
+        temporaryDiceText += "]";
+        if (modifier!=0){temporaryDiceText += " + " + modifier;}
+        temporaryDiceText += " = " + (summaryRandom+modifier);
+        return temporaryDiceText;
     }
 }
