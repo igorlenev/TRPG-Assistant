@@ -85,7 +85,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/generate_button"
-            android:backgroundTint="@color/ColorSoft"
+            android:backgroundTint="@color/colorSoft"
             android:text="@string/generateButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

@@ -4,4 +4,6 @@
     <string name="numberOfEdges">Edges</string>
     <string name="numberOfDices">Dices</string>
     <string name="modifier">Modifier</string>
+    <string name="changeToMap">Game Field</string>
+    <string name="changeToSheets">Character sheets, notes</string>
 </resources>

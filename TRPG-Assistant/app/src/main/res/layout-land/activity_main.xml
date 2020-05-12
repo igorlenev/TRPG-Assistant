@@ -10,7 +10,7 @@
         android:id="@+id/changebleFragmentContainer"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:background="@color/ColorSoft"
+        android:background="@color/colorSoft"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/dicerFragmentContainer"
         app:layout_constraintEnd_toStartOf="@+id/dicerFragmentContainer"
