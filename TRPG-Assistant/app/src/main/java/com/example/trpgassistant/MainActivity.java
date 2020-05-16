@@ -20,10 +20,10 @@ public class MainActivity extends FragmentActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         DicerFragment dicerFragment = new DicerFragment();
-        SheetsFragment sheetsFragment = new SheetsFragment();
+        GameFieldFragment gameFieldFragment = new GameFieldFragment();
 
         fragmentTransaction.add(R.id.dicerFragmentContainer, dicerFragment);
-        fragmentTransaction.add(R.id.changebleFragmentContainer, sheetsFragment);
+        fragmentTransaction.add(R.id.changebleFragmentContainer, gameFieldFragment);
         fragmentTransaction.commit();
     }
 }

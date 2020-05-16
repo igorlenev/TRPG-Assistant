@@ -6,4 +6,6 @@
     <string name="modifier">Modifier</string>
     <string name="changeToMap">Game Field</string>
     <string name="changeToSheets">Character sheets, notes</string>
+    <string name="chooseBackground">Choose background</string>
+    <string name="addChars">Add character</string>
 </resources>
